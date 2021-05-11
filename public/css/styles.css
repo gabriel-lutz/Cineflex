@@ -4,7 +4,9 @@
 body{
     font-family: 'Roboto', sans-serif;
 }
-
+ a{
+     text-decoration: none;
+ }
 .header{
     background: #C3CFD9;
     width: 100%;
@@ -44,4 +46,33 @@ body{
 
 .filme img{
     width: 100%;
+}
+
+.horarios{
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+}
+
+.horarios p{
+    font-size: 20px;
+    color: #293845;
+    margin: 22px 0 ;
+}
+.times{
+    display: flex;
+
+}
+.time{
+    width: 83px;
+    height: 43px;
+    margin: 0 8px 8px 0;
+    border-radius: 3px;
+    background: #E8833A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }

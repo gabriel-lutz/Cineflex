@@ -19,7 +19,7 @@ export default function MovieList(){
             <div className="filmes">
                {movieList.map((movie)=>{
                    return(
-                    <Link to={`/filme/${movie.id}`}>
+                    <Link to={`/sessoes/${movie.id}`}>
                         <li className="filme">
                             <img src={movie.posterURL}></img>
                         </li>

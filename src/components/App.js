@@ -11,7 +11,7 @@ export default function App(){
                 <Route path="/" exact>
                     <MovieList />
                 </Route>
-                <Route path="/filme/:id">
+                <Route path="/sessoes/:id">
                     <Sessions />
                 </Route>
             </Switch>
