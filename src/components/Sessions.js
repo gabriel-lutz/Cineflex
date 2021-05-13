@@ -2,7 +2,8 @@ import {useState, useEffect} from "react"
 import { useParams } from 'react-router-dom';
 import axios from "axios"
 import Session from "./Session"
-export default function Sessions(){
+import SelectedMovieFooter from "./SelectedMovieFooter"
+export default function Sessions(props){
     const params = useParams()
     const [sessionsList, setSessionsList] = useState([])
 
@@ -17,8 +18,9 @@ export default function Sessions(){
         <ul className="display">
             <h1>Selecione o horário</h1>
             <div className="horarios">
-                {sessionsList.map((session)=><Session session={session}/>)}
+                {sessionsList.map((session)=><Session session={session} selected={props.selected} select={props.select}/>)}
             </div>
+            <SelectedMovieFooter selected={props.selected}/>
         </ul>
 
     )

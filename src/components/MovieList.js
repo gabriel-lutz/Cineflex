@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import Movie from "./Movie"
 import axios from "axios"
 import { useState, useEffect } from "react"
 
-export default function MovieList(){
+export default function MovieList(props){
     const [movieList, setMovieList] = useState([])
 
     useEffect(()=>{
@@ -11,23 +11,11 @@ export default function MovieList(){
             setMovieList(data.data)
         })
     },[])
-
-    console.log(movieList)
     return(
         <ul className="display">
             <h1>Selecione o filme</h1>
             <div className="filmes">
-               {movieList.map((movie)=>{
-                   return(
-                    <Link to={`/sessoes/${movie.id}`}>
-                        <li className="filme">
-                            <img src={movie.posterURL}></img>
-                        </li>
-                    </Link>
-                   )
-               })} 
-                
-                
+               {movieList.map((movie)=> <Movie movie={movie} select={props.select} />)} 
             </div>
             
         </ul>
