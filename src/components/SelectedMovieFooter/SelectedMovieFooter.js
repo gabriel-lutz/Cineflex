@@ -1,8 +1,9 @@
+import "./SelectedMovieFooter.css"
 export default function SelectedMovieFooter(props){
     return(
-        <div className="selecionado">
-            <div className="informacoes">
-                <div className="filme footer">
+        <div className="selectedBox">
+            <div className="selectedInfo">
+                <div className="movie footer">
                     <img src={props.selected.url} alt=""/>
                 </div>
                 <div className="nome">

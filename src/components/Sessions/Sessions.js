@@ -1,8 +1,9 @@
 import {useState, useEffect} from "react"
 import { useParams } from 'react-router-dom';
 import axios from "axios"
-import Session from "./Session"
-import SelectedMovieFooter from "./SelectedMovieFooter"
+import Session from "../Session/Session"
+import SelectedMovieFooter from "../SelectedMovieFooter/SelectedMovieFooter"
+import "./Sessions.css"
 export default function Sessions(props){
     const params = useParams()
     const [sessionsList, setSessionsList] = useState([])
@@ -12,12 +13,12 @@ export default function Sessions(props){
             response.then((data)=>{
                 setSessionsList(data.data.days)
             })
-    },[])
+    },[params.id])
     
     return(
         <ul className="display">
             <h1>Selecione o horário</h1>
-            <div className="horarios">
+            <div className="sessionTime">
                 {sessionsList.map((session, i)=><Session key={i} session={session} selected={props.selected} select={props.select}/>)}
             </div>
             <SelectedMovieFooter selected={props.selected}/>

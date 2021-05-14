@@ -1,0 +1,7 @@
+.seatsList .notAvailable{
+    background: #FBE192;
+}
+
+.seatsList .selected{
+    background: #8DD7CF;
+}

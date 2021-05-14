@@ -1,3 +1,4 @@
+import "./SeatInfo.css"
 export default function SeatInfo(){
     return(
         <div  className="seatInfo">

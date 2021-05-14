@@ -1,3 +1,5 @@
+import "./Input.css"
+
 export default function Input({select, selected}){
     return(
         <div className="inputSection">

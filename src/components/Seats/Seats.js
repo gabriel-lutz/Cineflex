@@ -1,22 +1,23 @@
-import SelectedMovieFooter from "./SelectedMovieFooter"
-import Seat from "./Seat"
-import Input from "./Input"
-import SeatInfo from "./SeatInfo"
+import SelectedMovieFooter from "../SelectedMovieFooter/SelectedMovieFooter"
+import Seat from "../Seat/Seat"
+import Input from "../Input/Input"
+import SeatInfo from "../SeatInfo/SeatInfo"
 import axios from 'axios'
+import "./Seats.css"
 import {useState, useEffect} from "react"
 import { useParams, useHistory } from 'react-router-dom';
 
 export default function Seats({selected, select}){
-    const param = useParams()
+    const params = useParams()
     const [seatsList, setSeatsList] = useState([])
     let history = useHistory()
 
     useEffect(()=>{
-            const response = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${param.id}/seats`)
+            const response = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${params.id}/seats`)
             response.then((data)=>{
                 setSeatsList(data.data.seats)
             })
-    },[])
+    },[params.id])
 
     function send(){
         if(selected.name.length >=2 && selected.cpf.length >= 11){

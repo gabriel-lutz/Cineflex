@@ -1,4 +1,5 @@
 import {useState} from "react"
+import "./Seat.css"
 export default function Seat({seat, selected, select}){
     const [selecionado, setSelecionado] = useState(false)
     

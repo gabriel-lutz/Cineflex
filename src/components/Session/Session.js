@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import "./Session.css"
 export default function Session(props){
     const session = props.session
     const selected = props.selected

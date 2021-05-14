@@ -1,0 +1,11 @@
+.seatInfo{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.seatInfo div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
