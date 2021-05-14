@@ -15,7 +15,7 @@ export default function MovieList(props){
         <ul className="display">
             <h1>Selecione o filme</h1>
             <div className="filmes">
-               {movieList.map((movie)=> <Movie movie={movie} select={props.select} />)} 
+               {movieList.map((movie, i)=> <Movie key={i} movie={movie} select={props.select} />)} 
             </div>
             
         </ul>

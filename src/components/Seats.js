@@ -4,11 +4,12 @@ import Input from "./Input"
 import SeatInfo from "./SeatInfo"
 import axios from 'axios'
 import {useState, useEffect} from "react"
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 export default function Seats({selected, select}){
     const param = useParams()
     const [seatsList, setSeatsList] = useState([])
+    let history = useHistory()
 
     useEffect(()=>{
             const response = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${param.id}/seats`)
@@ -18,9 +19,10 @@ export default function Seats({selected, select}){
     },[])
 
     function send(){
-        if(selected.name.length > 3 && selected.cpf.length === 11){
+        if(selected.name.length >=2 && selected.cpf.length >= 11){
             const response = axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many`,{ids: [...selected.seat], name: selected.name, cpf: selected.cpf})
-            response.then(()=>console.log("sucesso"))
+            response.then(()=>{history.push("/sucesso")})
+            response.catch(()=>{alert("Oops, algo deu errado. Tente novamente!")})
         }else{
             alertClient()
         }
@@ -28,14 +30,12 @@ export default function Seats({selected, select}){
 
     function alertClient(){
         alert("Digite seu nome, cpf e selecione um assento!!")
-        
     }
-    console.log(seatsList)
     return(
         <div className="display seatsSection">  
             <h1> Selecione o(s) acento(s)</h1>
             <div className="seatsList">
-                {seatsList.map(seat=> <Seat seat={seat} selected={selected} select={select} />)}
+                {seatsList.map((seat, i)=> <Seat key={i} seat={seat} selected={selected} select={select} />)}
                 <SeatInfo/>
             </div>
 

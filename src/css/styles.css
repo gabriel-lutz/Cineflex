@@ -22,7 +22,7 @@ body{
 
 .display{
     margin-top: 67px;
-    margin-bottom: 150px;
+    margin-bottom: 117px;
     border: 1px solid #fff;
     text-align: center;
 }
@@ -72,15 +72,21 @@ body{
 .horarios{
     padding-left: 30px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: left;
     text-align: left;
 }
 
+.horarios > div{
+    margin: 0 20px;
+}
+.horarios .time {
+    margin-bottom: 22px;
+}
 .horarios p{
     font-size: 20px;
     color: #293845;
-    margin: 22px 0 ;
+    margin: 0 0 22px 0 ;
 }
 .times{
     display: flex;
@@ -105,6 +111,8 @@ body{
     right: 0;
     background: #DFE6ED;
     height: 117px;
+    border: 1px solid #9EADBA;
+
 }
 
 .informacoes{
@@ -197,4 +205,28 @@ input::placeholder{
     border: none;
     outline: none;
     border-radius: 3px;
+}
+
+.success h1{
+    padding: 0 100px;
+    color: #247A6B;
+    font-weight: bold;
+}
+.checkout{
+    padding-left: 29px;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.checkout h2{
+    color: #293845;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.checkout p{
+    line-height: 26px;
+    font-size: 22px;
+    color:#293845;
 }

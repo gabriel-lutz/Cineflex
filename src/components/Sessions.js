@@ -18,7 +18,7 @@ export default function Sessions(props){
         <ul className="display">
             <h1>Selecione o horário</h1>
             <div className="horarios">
-                {sessionsList.map((session)=><Session session={session} selected={props.selected} select={props.select}/>)}
+                {sessionsList.map((session, i)=><Session key={i} session={session} selected={props.selected} select={props.select}/>)}
             </div>
             <SelectedMovieFooter selected={props.selected}/>
         </ul>

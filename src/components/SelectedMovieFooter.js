@@ -3,7 +3,7 @@ export default function SelectedMovieFooter(props){
         <div className="selecionado">
             <div className="informacoes">
                 <div className="filme footer">
-                    <img src={props.selected.url}/>
+                    <img src={props.selected.url} alt=""/>
                 </div>
                 <div className="nome">
                     <p>{props.selected.movieName}</p>

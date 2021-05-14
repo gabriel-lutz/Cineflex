@@ -4,18 +4,23 @@ export default function Seat({seat, selected, select}){
     
     function addSeat(){
         let seatArray = []
+        let seatNumberArray = []
         if(!selected.seat){
             seatArray.push(seat.id)
+            seatNumberArray.push(seat.name)
         }else{
             seatArray=[...selected.seat]
             seatArray.push(seat.id)
+            seatNumberArray=[...selected.seatName]
+            seatNumberArray.push(seat.name)
         }
-        select({...selected, seat: [...seatArray]})
+        select({...selected, seat: [...seatArray], seatName: [...seatNumberArray]})
     }
 
     function removeSeat(){
         let removedArray = selected.seat.filter((i)=>i===seat.id? false:true)
-        select({...selected, seat: [...removedArray]})
+        let removedNumberArray = selected.seatName.filter((i)=>i===seat.name? false:true)
+        select({...selected, seat: [...removedArray], seatName: [...removedNumberArray]})
     }
 
     function choose(){
@@ -27,6 +32,7 @@ export default function Seat({seat, selected, select}){
             addSeat()
         }
     }
+    
     function unavailable(){
         alert("O lugar selecionado não está disponível, selecione outro assento.")
     }
